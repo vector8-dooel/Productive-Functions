@@ -1,0 +1,18 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+
+    "PRODUCTIVE_BASE_URL": "https://api.productive.io/api/v2",
+    "PRODUCTIVE_AUTH_TOKEN": "<your-token>",
+    "PRODUCTIVE_ORG_ID": "<org-id>",
+
+    "AZURE_STORAGE_CONNECTION_STRING": "<local-or-cloud-conn-string>",
+    "AZURE_BLOB_CONTAINER": "productive-data",
+    "STATE_BLOB": "state.json",
+
+    "TABLES": "projects,deals,budgets,companies,tasks,services,people",
+    "CRON_SCHEDULE": "0 0 6 * * *"
+  }
+}
