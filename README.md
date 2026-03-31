@@ -4,26 +4,32 @@ The tables ingested are projects,deals,deal_statuses,companies,subsidiaries,invo
 
 The solution supports:
 
-🔄 Incremental refresh (for endpoints with timestamps)
-🧩 Full diff‑merge (for endpoints with no timestamp fields)
-💾 Blob merge logic (dedupe by ID + latest row wins)
-⏱ Automated daily refresh via Timer Trigger (6am utc by productive_incremental_timer)
-🛠 Retry logic for rate limits and API instability
-☁️ Works fully serverless in Azure (no local dependencies)
+<li>🔄 Incremental refresh (for endpoints with timestamps)</li>
+<li>🧩 Full diff‑merge (for endpoints with no timestamp fields)</li>
+<li>💾 Blob merge logic (dedupe by ID + latest row wins)</li>
+<li>⏱ Automated daily refresh via Timer Trigger (6am utc by productive_incremental_timer)</li>
+<li>🛠 Retry logic for rate limits and API instability</li>
+<li>☁️ Works fully serverless in Azure (no local dependencies)</li>
+</p>
 
+<h2>📁 Project Structure</h2>
 
-📁 Project Structure
+<pre style="background:#f6f8fa; padding:16px; border-radius:6px;">
 productive-functions/
-└── productive_client/            # Core ETL logic
-    ├── blob_io.py                # Blob I/O + merge + state management
-    ├── config.py                 # Env configuration + API keys
-    ├── extractors.py             # Universal + incremental extractors
-    ├── http_utils.py             # Pagination + retry logic
-    ├── lookups.py                # Lookup tables (fields, options, people)
-    └── pipeline.py               # Orchestrator for full/incremental loads
+│
 ├── function_app.py               # Azure Function entry file (Python v2)
 ├── host.json                     # Function host configuration
 ├── requirements.txt              # Python dependencies
 ├── local.settings.json           # Local dev settings (ignored in Azure)
+│
+└── productive_client/            # Core ETL logic
+    ├── __init__.py
+    ├── config.py                 # Env configuration + API keys
+    ├── http_utils.py             # Pagination + retry logic
+    ├── lookups.py                # Lookup tables (fields, options, people)
+    ├── extractors.py             # Universal + incremental extractors
+    ├── pipeline.py               # Orchestrator for full/incremental loads
+    └── blob_io.py                # Blob I/O + merge + state management
+</pre>
 
 
