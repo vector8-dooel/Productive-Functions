@@ -23,7 +23,6 @@ productive-functions/
 ├── local.settings.json           # Local dev settings (ignored in Azure)
 │
 └── productive_client/            # Core ETL logic
-    ├── __init__.py
     ├── config.py                 # Env configuration + API keys
     ├── http_utils.py             # Pagination + retry logic
     ├── lookups.py                # Lookup tables (fields, options, people)
